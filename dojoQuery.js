@@ -1,22 +1,23 @@
 (function (global) {
 
-  function myAccessorFunction() {
-    let dojoElement = document.createElement("dojo");
+  function myAccessorFunction(elementId) {
+    this.htmlElement = document.getElementById(elementId);
 
-    dojoElement.click = function (callback) {
-      callback()
+    htmlElement.click = function (callback) {
+      htmlElement.addEventListener("click", callback)
     }
-    dojoElement.hover = function (hoverOn, hoverOff) {
-      if(typeof hoverOff != 'function')
-        hoverOn()
-      else
-        hoverOff()
+    htmlElement.hover = function (hoverOn, hoverOff) {
+      if(typeof hoverOff != 'function') {
+        htmlElement.addEventListener("mouseover", hoverOn)
+      }
+      else {
+        htmlElement.addEventListener("mouseout", hoverOff)
+      }
     }
-    return dojoElement;
+    return htmlElement;
 
   }
 
   global.$Dojo = myAccessorFunction;
-  return $Dojo()
 
 }(window))

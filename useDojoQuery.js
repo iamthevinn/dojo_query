@@ -1,15 +1,8 @@
-function buttonClick() {
-  $Dojo("someIdForSomeButton").click(function () {console.log("The button was clicked!")});
-}
-function onHover() {
+$Dojo("someIdForSomeButton").click(function () {console.log("The button was clicked!")});
 $Dojo("someOtherIdForSomeOtherButton").hover(function () {
   console.log("The button was hovered on!")
 });
-}
-
-function offHover() {
-  $Dojo("someOtherIdForSomeOtherButton").hover(
-    undefined, function () {
-    console.log("The button was hovered off!")
-  });
-}
+$Dojo("someOtherIdForSomeOtherButton").hover(
+  undefined, function () {
+  console.log("The button was hovered off!")
+});
