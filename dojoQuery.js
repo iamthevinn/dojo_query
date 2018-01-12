@@ -2,20 +2,21 @@
 
   function myAccessorFunction(elementId) {
     let htmlElement = document.createElement("html");
-    let returnObject = {}
-    returnObject.click = function (callback) {
+    
+    htmlElement.click = function (callback) {
       callback()
     }
-    returnObject.hover = function (hoverOn, hoverOff) {
+    htmlElement.hover = function (hoverOn, hoverOff) {
       if(typeof hoverOff != 'function')
         hoverOn()
       else
         hoverOff()
     }
-    return returnObject;
+    return htmlElement;
 
   }
 
   global.$Dojo = myAccessorFunction;
+  return $Dojo()
 
 }(window))

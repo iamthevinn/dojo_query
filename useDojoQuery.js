@@ -8,9 +8,8 @@ $Dojo("someOtherIdForSomeOtherButton").hover(function () {
 }
 
 function offHover() {
-  $Dojo("someOtherIdForSomeOtherButton").hover(function () {
-    console.log("The button was hovered on!")
-  }, function () {
+  $Dojo("someOtherIdForSomeOtherButton").hover(
+    undefined, function () {
     console.log("The button was hovered off!")
   });
 }
