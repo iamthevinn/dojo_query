@@ -1,7 +1,7 @@
 (function (global) {
 
   function myAccessorFunction(elementId) {
-    this.htmlElement = document.getElementById(elementId);
+    let htmlElement = document.getElementById(elementId);
 
     htmlElement.click = function (callback) {
       htmlElement.addEventListener("click", callback)
