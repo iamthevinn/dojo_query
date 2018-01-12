@@ -1,13 +1,16 @@
 (function (global) {
 
   function myAccessorFunction(elementId) {
-    console.log("elementId: " + elementId)
+    let htmlElement = document.createElement("html");
     let returnObject = {}
     returnObject.click = function (callback) {
       callback()
     }
-    returnObject.hover = function (callback) {
-      callback()
+    returnObject.hover = function (hoverOn, hoverOff) {
+      if(typeof hoverOff != 'function')
+        hoverOn()
+      else
+        hoverOff()
     }
     return returnObject;
 
